@@ -1,0 +1,19 @@
+// #Film [使用 Rect 代替 Film]
+import { App, Rect } from 'leafer-ui'
+import '@leafer-in/editor' // 导入图形编辑器插件
+import '@leafer-in/viewport' // 导入视口插件 (可选)
+
+import '@leafer-in/film' // 导入动图插件  // [!code hl]
+
+const app = new App({ view: window, editor: {} })
+
+const film = new Rect({
+    fill: { // [!code hl:5]
+        type: 'film',
+        url: '/film/color.gif',
+        mode: 'stretch',
+    },
+    editable: true
+})
+
+app.tree.add(film)

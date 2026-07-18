@@ -1,0 +1,82 @@
+// #Image Lighter [1千张不同的图片流畅操作]
+import { IGroup } from '@leafer-ui/interface'
+import { App, Image, Group, Resource } from 'leafer-ui'
+import '@leafer-in/viewport'
+import '@leafer-in/view'
+import '@leafer-in/editor'
+
+import { ImageLighter } from '@pxgrow/image-lighter'  // [!code hl]
+
+const app = new App({ view: window, editor: {} })
+
+new ImageLighter(app.tree, {}) // 图片加速
+
+createImages(app.tree, 1) // 1千张图片
+
+app.waitReady(() => {
+    app.tree.zoom('fit')
+})
+
+
+function createImages(view: IGroup, num: number) {
+    var group
+    var groupSize = 10 * 100 * 1.5
+    var column = num > 25 ? 10 : 5
+
+    for (var i = 0; i < num; i++) {
+        group = new Group()
+        group.x = groupSize * (i % column)
+        group.y = groupSize * 0.6 * Math.floor(i / column)
+        view.add(group)
+        createGroup(group, i, 0, 0, `hsl(${i * 3},60%,50%)`)
+    }
+}
+
+function createGroup(group: IGroup, num: number, startX: number, startY: number, color: string) {
+    var y, image
+
+    for (var i = 0; i < 100; i++) {
+        if (i % 10 === 0) startX += 10
+        y = startY
+        for (var j = 0; j < 10; j++) {
+            if (j % 10 === 0) y += 10
+            image = new Image()
+            image.x = startX
+            image.y = y
+            image.width = 10
+            image.height = 6
+            image.editable = true
+            createUrl(image, num * 10000 + i * 10 + j + 1, color)
+            group.add(image)
+            y += 8
+        }
+        startX += 10 + 2
+    }
+}
+
+// 模拟不重复的图片（每张1000 * 600px）
+function createUrl(image: Image, count: number, color: string): void {
+    setTimeout(() => {
+        const canvas = new OffscreenCanvas(1000, 600)
+        const context = canvas.getContext('2d')
+
+        context.fillStyle = color
+        context.fillRect(0, 0, 1000, 600)
+
+        for (let i = 0; i < 10; i++) {
+            context.fillStyle = `hsl(${Math.round(10 + Math.random() * 100)},70%,50%)`
+            context.beginPath()
+            context.arc(Math.random() * 1000, Math.random() * 600, 10 + Math.random() * 100, 0, Math.PI * 2)
+            context.fill()
+        }
+
+        context.fillStyle = 'rgba(255,255,255,0.8)'
+        context.font = `bold 150px Arial`
+        context.textAlign = 'center'
+        context.textBaseline = 'middle'
+        context.fillText(count.toString(), 500, 300)
+
+        const bitmap = canvas.transferToImageBitmap()
+        image.url = Resource.setImage('leafer://' + count + '.jpg', bitmap).url
+    }, count * 5)
+}
