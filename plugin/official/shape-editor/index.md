@@ -8,7 +8,7 @@ Shape Editor —— 轻松实现形状编辑。
 
 ## 📆 更新日志
 
-当前为 v1.0.0-beta.2，[查看更新日志](./update.md)。
+当前为 v1.0.0-beta.3，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（本地安装）
 
@@ -16,7 +16,7 @@ Shape Editor —— 轻松实现形状编辑。
 
 ### 第一步：获取插件包
 
-购买后，你将获得一个名为 `pxgrow-shape-editor-1.0.0-beta.2.tgz` 的安装包。
+购买后，你将获得一个名为 `pxgrow-shape-editor-1.0.0-beta.3.tgz` 的安装包。
 
 将该文件放置在你的项目根目录下的 `pxgrow` 文件夹中统一管理，安装后请勿删除。
 
@@ -27,32 +27,32 @@ Shape Editor —— 轻松实现形状编辑。
 ::: code-group
 
 ```sh [npm]
-npm install ./pxgrow/pxgrow-shape-editor-1.0.0-beta.2.tgz
+npm install ./pxgrow/pxgrow-shape-editor-1.0.0-beta.3.tgz
 ```
 
 ```sh [pnpm]
-pnpm add ./pxgrow/pxgrow-shape-editor-1.0.0-beta.2.tgz
+pnpm add ./pxgrow/pxgrow-shape-editor-1.0.0-beta.3.tgz
 ```
 
 ```sh [yarn]
-yarn add ./pxgrow/pxgrow-shape-editor-1.0.0-beta.2.tgz
+yarn add ./pxgrow/pxgrow-shape-editor-1.0.0-beta.3.tgz
 ```
 
 ```sh [bun]
-bun add ./pxgrow/pxgrow-shape-editor-1.0.0-beta.2.tgz
+bun add ./pxgrow/pxgrow-shape-editor-1.0.0-beta.3.tgz
 ```
 
 :::
 
 将在 package.json 中自动增加本地依赖:
 
-`"@pxgrow/shape-editor": "file:pxgrow/pxgrow-shape-editor-1.0.0-beta.2.tgz"`
+`"@pxgrow/shape-editor": "file:pxgrow/pxgrow-shape-editor-1.0.0-beta.3.tgz"`
 
 ---
 
 或通过 script 标签引入，使用全局变量 PxGrow.shapeEditor 访问插件内部功能。
 
-需解压 `pxgrow-shape-editor-1.0.0-beta.2.tgz` 文件，复制 `package/dist/shape-editor.js` 使用。
+需解压 `pxgrow-shape-editor-1.0.0-beta.3.tgz` 文件，复制 `package/dist/shape-editor.js` 使用。
 
 ::: code-group
 
@@ -130,6 +130,7 @@ const app = new App({
             // startPoint: { stroke: 'red' }, // 起点样式
             // endPoint: {}, // 结束点样式
             // innerPoint: {} // 内径控制点样式
+            //  pointAlign: 'center' // 起点和结束点对齐圆环的方式，默认为 outer
         }
     }
 })

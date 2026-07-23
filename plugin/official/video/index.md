@@ -199,7 +199,7 @@ const url = '/video/forest.mp4'
 
 Resource.loadVideo(url).then(() => { // [!code hl:5]
 
-    app.tree.add(new Video({ url, editable: true }))
+    app.tree.add(new Video({ url, pixelRatio: 2, editable: true }))
 
 })
 ```
@@ -320,6 +320,7 @@ const app = new App({ view: window, editor: {} })
 
 const video = new Video({
     url: '/video/forest.mp4',
+    pixelRatio: 2,
     editable: true
 })
 

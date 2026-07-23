@@ -15,6 +15,7 @@ const app = new App({
             // startPoint: { stroke: 'red' }, // 起点样式
             // endPoint: {}, // 结束点样式
             // innerPoint: {} // 内径控制点样式
+            //  pointAlign: 'center' // 起点和结束点对齐圆环的方式，默认为 outer
         }
     }
 })

@@ -16,9 +16,9 @@ Motion Text —— 轻松实现运动路径文本效果。
 
 ### 第一步：获取插件包
 
-购买后，你将获得一个名为 `pxgrow-motion-text-1.0.0-beta.tgz` 的安装包。
+购买后，你将获得一个名为 `leafer-in-motion-text-1.0.0-beta.tgz` 的安装包。
 
-将该文件放置在你的项目根目录下的 `pxgrow` 文件夹中统一管理，安装后请勿删除。
+将该文件放置在你的项目根目录下的 `leafer` 文件夹中统一管理，安装后请勿删除。
 
 ### 第二步：本地安装命令
 
@@ -27,37 +27,37 @@ Motion Text —— 轻松实现运动路径文本效果。
 ::: code-group
 
 ```sh [npm]
-npm install ./pxgrow/pxgrow-motion-text-1.0.0-beta.tgz
+npm install ./leafer/leafer-in-motion-text-1.0.0-beta.tgz
 ```
 
 ```sh [pnpm]
-pnpm add ./pxgrow/pxgrow-motion-text-1.0.0-beta.tgz
+pnpm add ./leafer/leafer-in-motion-text-1.0.0-beta.tgz
 ```
 
 ```sh [yarn]
-yarn add ./pxgrow/pxgrow-motion-text-1.0.0-beta.tgz
+yarn add ./leafer/leafer-in-motion-text-1.0.0-beta.tgz
 ```
 
 ```sh [bun]
-bun add ./pxgrow/pxgrow-motion-text-1.0.0-beta.tgz
+bun add ./leafer/leafer-in-motion-text-1.0.0-beta.tgz
 ```
 
 :::
 
 将在 package.json 中自动增加本地依赖:
 
-`"@pxgrow/motion-text": "file:pxgrow/pxgrow-motion-text-1.0.0-beta.tgz"`
+`"@leafer/motion-text": "file:leafer/leafer-in-motion-text-1.0.0-beta.tgz"`
 
 ---
 
 或通过 script 标签引入，使用全局变量 PxGrow.motionText 访问插件内部功能。
 
-需解压 `pxgrow-motion-text-1.0.0-beta.tgz` 文件，复制 `package/dist/motion-text.js` 使用。
+需解压 `leafer-in-motion-text-1.0.0-beta.tgz` 文件，复制 `package/dist/motion-text.js` 使用。
 
 ::: code-group
 
 ```html [web]
-<script src="/lib/pxgrow/motion-text.js"></script>
+<script src="/lib/leafer/motion-text.js"></script>
 <script>
   const { PointsEditTool } = PxGrow.motionText
 </script>

@@ -170,7 +170,7 @@ const rect3 = Box.one({
         style: {
             stroke: {
                 type: 'angular',
-                rotation: 360, // 依赖 LeaferJS v2.2.3
+                rotation: 360, // 依赖 LeaferJS v2.2.4
                 stops: ['#836DFF', '#836DFF', 'white', '#836DFF', '#836DFF']
             }
         },

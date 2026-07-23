@@ -8,7 +8,7 @@ import Case from '/component/Case.vue'
 
 ## 📆 更新日志
 
-当前为 v1.1.4，[查看更新日志](./update.md)。
+当前为 v1.1.5，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（本地安装）
 
@@ -16,7 +16,7 @@ import Case from '/component/Case.vue'
 
 ### 第一步：获取插件包
 
-购买后，你将获得一个名为 `pxgrow-image-lighter-1.1.4.tgz` 的安装包。
+购买后，你将获得一个名为 `pxgrow-image-lighter-1.1.5.tgz` 的安装包。
 
 将该文件放置在你的项目根目录下的 `pxgrow` 文件夹中统一管理，安装后请勿删除。
 
@@ -27,32 +27,32 @@ import Case from '/component/Case.vue'
 ::: code-group
 
 ```sh [npm]
-npm install ./pxgrow/pxgrow-image-lighter-1.1.4.tgz
+npm install ./pxgrow/pxgrow-image-lighter-1.1.5.tgz
 ```
 
 ```sh [pnpm]
-pnpm add ./pxgrow/pxgrow-image-lighter-1.1.4.tgz
+pnpm add ./pxgrow/pxgrow-image-lighter-1.1.5.tgz
 ```
 
 ```sh [yarn]
-yarn add ./pxgrow/pxgrow-image-lighter-1.1.4.tgz
+yarn add ./pxgrow/pxgrow-image-lighter-1.1.5.tgz
 ```
 
 ```sh [bun]
-bun add ./pxgrow/pxgrow-image-lighter-1.1.4.tgz
+bun add ./pxgrow/pxgrow-image-lighter-1.1.5.tgz
 ```
 
 :::
 
 将在 package.json 中自动增加本地依赖:
 
-`"@pxgrow/image-lighter": "file:pxgrow/pxgrow-image-lighter-1.1.4.tgz"`
+`"@pxgrow/image-lighter": "file:pxgrow/pxgrow-image-lighter-1.1.5.tgz"`
 
 ---
 
 或通过 script 标签引入，使用全局变量 PxGrow.imageLighter 访问插件内部功能。
 
-需解压 `pxgrow-image-lighter-1.1.4.tgz` 文件，复制 `package/dist/image-lighter.js` 使用。
+需解压 `pxgrow-image-lighter-1.1.5.tgz` 文件，复制 `package/dist/image-lighter.js` 使用。
 
 ::: code-group
 

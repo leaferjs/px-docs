@@ -9,6 +9,7 @@ const app = new App({ view: window, editor: {} })
 
 const video = new Video({
     url: '/video/forest.mp4',
+    pixelRatio: 2,
     editable: true
 })
 
