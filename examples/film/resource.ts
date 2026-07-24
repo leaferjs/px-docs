@@ -16,4 +16,3 @@ Resource.loadFilm(url).then(() => { // [!code hl:5]
 })
 
 // Resource.loadFilm(url, 'gif') // 第二个参数可以强制指定动图格式 'gif' | 'webp' | 'png' | 'avif'，需要安装相应的格式解码插件
-

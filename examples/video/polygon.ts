@@ -1,5 +1,5 @@
-// #Video [使用 Rect 代替 Video]
-import { App, Rect } from 'leafer-ui'
+// #Video [在 Polygon 中使用 Video]
+import { App, Polygon } from 'leafer-ui'
 import '@leafer-in/editor' // 导入图形编辑器插件
 import '@leafer-in/viewport' // 导入视口插件 (可选)
 
@@ -7,7 +7,8 @@ import { PaintVideo } from '@leafer-in/video' // 导入视频插件  // [!code h
 
 const app = new App({ view: window, editor: {} })
 
-const rect = new Rect({
+const polygon = new Polygon({
+    sides: 6,
     fill: { // [!code hl:5]
         type: 'video',
         url: '/video/forest.mp4',
@@ -17,12 +18,12 @@ const rect = new Rect({
     editable: true
 })
 
-app.tree.add(rect)
+app.tree.add(polygon)
 
-const video = new PaintVideo(rect)
+const video = new PaintVideo(polygon)
 
 // 点击 video 暂停/播放视频 // [!code hl:17]
-rect.on('click', () => {
+polygon.on('click', () => {
 
     video.togglePlay()
 

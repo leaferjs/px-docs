@@ -12,7 +12,7 @@ Video &nbsp;>&nbsp; [Image](https://www.leaferjs.com/ui/reference/display/Image.
 
 ## 更新日志
 
-当前版本为 v1.0.0-beta，[查看更新日志](./update.md)。
+当前版本为 v1.0.0-beta.2，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（本地安装）
 
@@ -20,7 +20,7 @@ Video &nbsp;>&nbsp; [Image](https://www.leaferjs.com/ui/reference/display/Image.
 
 ### 第一步：获取插件包
 
-购买后，你将获得一个名为 `leafer-in-video-1.0.0-beta.tgz` 的安装包。
+购买后，你将获得一个名为 `leafer-in-video-1.0.0-beta.2.tgz` 的安装包。
 
 将该文件放置在你的项目根目录下的 `leafer` 文件夹中统一管理，安装后请勿删除。
 
@@ -31,22 +31,22 @@ Video &nbsp;>&nbsp; [Image](https://www.leaferjs.com/ui/reference/display/Image.
 ::: code-group
 
 ```sh [npm]
-npm install ./leafer/leafer-in-video-1.0.0-beta.tgz
+npm install ./leafer/leafer-in-video-1.0.0-beta.2.tgz
 
 ```
 
 ```sh [pnpm]
-pnpm add ./leafer/leafer-in-video-1.0.0-beta.tgz
+pnpm add ./leafer/leafer-in-video-1.0.0-beta.2.tgz
 
 ```
 
 ```sh [yarn]
-yarn add ./leafer/leafer-in-video-1.0.0-beta.tgz
+yarn add ./leafer/leafer-in-video-1.0.0-beta.2.tgz
 
 ```
 
 ```sh [bun]
-bun add ./leafer/leafer-in-video-1.0.0-beta.tgz
+bun add ./leafer/leafer-in-video-1.0.0-beta.2.tgz
 
 ```
 
@@ -54,13 +54,13 @@ bun add ./leafer/leafer-in-video-1.0.0-beta.tgz
 
 将在 package.json 中自动增加本地依赖:
 
-`"@leafer-in/video": "file:leafer/leafer-in-video-1.0.0-beta.tgz"`
+`"@leafer-in/video": "file:leafer/leafer-in-video-1.0.0-beta.2.tgz"`
 
 ---
 
 或通过 script 标签引入，使用全局变量 LeaferIN.video 访问插件内部功能。
 
-解压 `leafer-in-video-1.0.0-beta.tgz` ，复制 `package/dist/video.js` 使用。
+解压 `leafer-in-video-1.0.0-beta.2.tgz` ，复制 `package/dist/video.js` 使用。
 
 ::: code-group
 
@@ -210,7 +210,7 @@ Resource.loadVideo(url).then(() => { // [!code hl:5]
 
 ## 示例
 
-### 创建Video
+### 创建 Video
 
 ```ts
 // #Video [创建Video元素]
@@ -278,6 +278,99 @@ app.tree.add(video)
 
 video.on('click', () => {
     video.togglePlay() // 点击 video 暂停/播放视频
+})
+```
+
+### 使用 Rect 代替 Video
+
+```ts
+// #Video [使用 Rect 代替 Video]
+import { App, Rect } from 'leafer-ui'
+import '@leafer-in/editor' // 导入图形编辑器插件
+import '@leafer-in/viewport' // 导入视口插件 (可选)
+
+import { PaintVideo } from '@leafer-in/video' // 导入视频插件  // [!code hl]
+
+const app = new App({ view: window, editor: {} })
+
+const rect = new Rect({
+    fill: { // [!code hl:5]
+        type: 'video',
+        url: '/video/forest.mp4',
+        mode: 'stretch',
+    },
+    pixelRatio: 2,
+    editable: true
+})
+
+app.tree.add(rect)
+
+const video = new PaintVideo(rect)
+
+// 点击 video 暂停/播放视频 // [!code hl:17]
+rect.on('click', () => {
+
+    video.togglePlay()
+
+    // 获取、设置视频相关参数，后续会做一个可选的视频播放控制条插件
+
+    // video.duration // 获取视频总时长，以秒为单位
+
+    // video.currentTime // 获取、设置当前视频的播放时间，以秒为单位
+
+    // video.volume // 获取、设置视频的音量，0～1
+
+    // video.paused // 视频是否已暂停
+
+    // video.ended // 视频是否已结束
+
+})
+```
+
+### 在 Polygon 中使用 Video
+
+```ts
+// #Video [在 Polygon 中使用 Video]
+import { App, Polygon } from 'leafer-ui'
+import '@leafer-in/editor' // 导入图形编辑器插件
+import '@leafer-in/viewport' // 导入视口插件 (可选)
+
+import { PaintVideo } from '@leafer-in/video' // 导入视频插件  // [!code hl]
+
+const app = new App({ view: window, editor: {} })
+
+const polygon = new Polygon({
+    sides: 6,
+    fill: { // [!code hl:5]
+        type: 'video',
+        url: '/video/forest.mp4',
+        mode: 'stretch',
+    },
+    pixelRatio: 2,
+    editable: true
+})
+
+app.tree.add(polygon)
+
+const video = new PaintVideo(polygon)
+
+// 点击 video 暂停/播放视频 // [!code hl:17]
+polygon.on('click', () => {
+
+    video.togglePlay()
+
+    // 获取、设置视频相关参数，后续会做一个可选的视频播放控制条插件
+
+    // video.duration // 获取视频总时长，以秒为单位
+
+    // video.currentTime // 获取、设置当前视频的播放时间，以秒为单位
+
+    // video.volume // 获取、设置视频的音量，0～1
+
+    // video.paused // 视频是否已暂停
+
+    // video.ended // 视频是否已结束
+
 })
 ```
 

@@ -1,5 +1,55 @@
 # PxGrow 更新日志
 
+## 2026 / 07 / 24
+
+> **v1.2.0**
+
+### [Ruler 插件](/plugin/official/ruler/index.md)
+
+> v1.0.0-beta.2
+
+#### 🌱 新增
+
+\- 🌸 增加参考线功能
+
+\- 🌸 支持自定义标尺单位，提供常见单位类型及单位转换方法
+
+#### 🌷 感谢反馈
+
+@Link
+
+### [Film 插件](/plugin/official/film/index.md)
+
+> v1.0.1
+
+依赖于 LeaferJS [ v2.2.5](https://www.leaferjs.com/ui/update/#_2026-07-24)
+
+#### 🌱 新增
+
+\- 🌸 支持在其他基础元素中通过fill对象播放动图
+
+#### 🌷 感谢反馈
+
+@张老爷
+
+### [Video 插件](/plugin/official/video/index.md)
+
+> v1.0.0-beta.2
+
+依赖于 LeaferJS [ v2.2.5](https://www.leaferjs.com/ui/update/#_2026-07-24)
+
+#### 🌱 新增
+
+\- 🌸 支持在其他基础元素中通过fill对象播放视频
+
+### [Path Editor 插件](/plugin/official/path-editor/index.md)
+
+> v1.1.2
+
+#### 🌿 优化
+
+\- 🌸 过滤重复的 M、L 坐标节点，避免椭圆元素首尾连接处会分成两个重复节点的问题
+
 ## 2026 / 07 / 17
 
 > **v1.1.9**

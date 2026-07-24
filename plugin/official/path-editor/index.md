@@ -12,7 +12,7 @@ PathEditor &nbsp;>&nbsp; [InnerEditor](https://www.leaferjs.com/ui/plugin/in/edi
 
 ## 📆 更新日志
 
-当前为 v1.1.1，[查看更新日志](./update.md)。
+当前为 v1.1.2，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（本地安装）
 
@@ -20,7 +20,7 @@ PathEditor &nbsp;>&nbsp; [InnerEditor](https://www.leaferjs.com/ui/plugin/in/edi
 
 ### 第一步：获取插件包
 
-购买后，你将获得一个名为 `pxgrow-path-editor-1.1.1.tgz` 的安装包。
+购买后，你将获得一个名为 `pxgrow-path-editor-1.1.2.tgz` 的安装包。
 
 将该文件放置在你的项目根目录下的 `pxgrow` 文件夹中统一管理，安装后请勿删除。
 
@@ -31,32 +31,32 @@ PathEditor &nbsp;>&nbsp; [InnerEditor](https://www.leaferjs.com/ui/plugin/in/edi
 ::: code-group
 
 ```sh [npm]
-npm install ./pxgrow/pxgrow-path-editor-1.1.1.tgz
+npm install ./pxgrow/pxgrow-path-editor-1.1.2.tgz
 ```
 
 ```sh [pnpm]
-pnpm add ./pxgrow/pxgrow-path-editor-1.1.1.tgz
+pnpm add ./pxgrow/pxgrow-path-editor-1.1.2.tgz
 ```
 
 ```sh [yarn]
-yarn add ./pxgrow/pxgrow-path-editor-1.1.1.tgz
+yarn add ./pxgrow/pxgrow-path-editor-1.1.2.tgz
 ```
 
 ```sh [bun]
-bun add ./pxgrow/pxgrow-path-editor-1.1.1.tgz
+bun add ./pxgrow/pxgrow-path-editor-1.1.2.tgz
 ```
 
 :::
 
 将在 package.json 中自动增加本地依赖:
 
-`"@pxgrow/path-editor": "file:pxgrow/pxgrow-path-editor-1.1.1.tgz"`
+`"@pxgrow/path-editor": "file:pxgrow/pxgrow-path-editor-1.1.2.tgz"`
 
 ---
 
 或通过 script 标签引入，使用全局变量 PxGrow.pathEditor 访问插件内部功能。
 
-需解压 `pxgrow-path-editor-1.1.1.tgz` 文件，复制 `package/dist/path-editor.js` 使用。
+需解压 `pxgrow-path-editor-1.1.2.tgz` 文件，复制 `package/dist/path-editor.js` 使用。
 
 ::: code-group
 

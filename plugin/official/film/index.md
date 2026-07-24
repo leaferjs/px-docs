@@ -12,7 +12,7 @@ Film &nbsp;>&nbsp; [Image](https://www.leaferjs.com/ui/reference/display/Image.h
 
 ## 更新日志
 
-当前版本为 v1.0.0，[查看更新日志](./update.md)。
+当前版本为 v1.0.1，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（本地安装）
 
@@ -20,7 +20,7 @@ Film &nbsp;>&nbsp; [Image](https://www.leaferjs.com/ui/reference/display/Image.h
 
 ### 第一步：获取插件包
 
-购买后，你将获得一个名为 `leafer-in-film-1.0.0.tgz` 的安装包。
+购买后，你将获得一个名为 `leafer-in-film-1.0.1.tgz` 的安装包。
 
 将该文件放置在你的项目根目录下的 `leafer` 文件夹中统一管理，安装后请勿删除。
 
@@ -31,22 +31,22 @@ Film &nbsp;>&nbsp; [Image](https://www.leaferjs.com/ui/reference/display/Image.h
 ::: code-group
 
 ```sh [npm]
-npm install ./leafer/leafer-in-film-1.0.0.tgz
+npm install ./leafer/leafer-in-film-1.0.1.tgz
 
 ```
 
 ```sh [pnpm]
-pnpm add ./leafer/leafer-in-film-1.0.0.tgz
+pnpm add ./leafer/leafer-in-film-1.0.1.tgz
 
 ```
 
 ```sh [yarn]
-yarn add ./leafer/leafer-in-film-1.0.0.tgz
+yarn add ./leafer/leafer-in-film-1.0.1.tgz
 
 ```
 
 ```sh [bun]
-bun add ./leafer/leafer-in-film-1.0.0.tgz
+bun add ./leafer/leafer-in-film-1.0.1.tgz
 
 ```
 
@@ -54,13 +54,13 @@ bun add ./leafer/leafer-in-film-1.0.0.tgz
 
 将在 package.json 中自动增加本地依赖:
 
-`"@leafer-in/film": "file:leafer/leafer-in-film-1.0.0.tgz"`
+`"@leafer-in/film": "file:leafer/leafer-in-film-1.0.1.tgz"`
 
 ---
 
 或通过 script 标签引入，使用全局变量 LeaferIN.film 访问插件内部功能。
 
-解压 `leafer-in-film-1.0.0.tgz` ，复制 `package/dist/film.js` 使用。
+解压 `leafer-in-film-1.0.1.tgz` ，复制 `package/dist/film.js` 使用。
 
 ::: code-group
 
@@ -227,8 +227,6 @@ Resource.loadFilm(url).then(() => { // [!code hl:5]
 })
 
 // Resource.loadFilm(url, 'gif') // 第二个参数可以强制指定动图格式 'gif' | 'webp' | 'png' | 'avif'，需要安装相应的格式解码插件
-
-
 ```
 
 ## 动图事件
@@ -299,11 +297,11 @@ import { App, Rect } from 'leafer-ui'
 import '@leafer-in/editor' // 导入图形编辑器插件
 import '@leafer-in/viewport' // 导入视口插件 (可选)
 
-import '@leafer-in/film' // 导入动图插件  // [!code hl]
+import { PaintFilm } from '@leafer-in/film' // 导入动图插件  // [!code hl]
 
 const app = new App({ view: window, editor: {} })
 
-const film = new Rect({
+const rect = new Rect({
     fill: { // [!code hl:5]
         type: 'film',
         url: '/film/color.gif',
@@ -312,7 +310,44 @@ const film = new Rect({
     editable: true
 })
 
-app.tree.add(film)
+app.tree.add(rect)
+
+const film = new PaintFilm(rect) // 提取元素中的 film  // [!code hl]
+
+rect.on('click', () => {
+    film.togglePlay() // 点击 film 暂停/播放动图
+})
+```
+
+### 在 Polygon 中使用 Film
+
+```ts
+// #Film [在 Polygon 中使用 Film]
+import { App, Polygon } from 'leafer-ui'
+import '@leafer-in/editor' // 导入图形编辑器插件
+import '@leafer-in/viewport' // 导入视口插件 (可选)
+
+import { PaintFilm } from '@leafer-in/film' // 导入动图插件  // [!code hl]
+
+const app = new App({ view: window, editor: {} })
+
+const polygon = new Polygon({
+    sides: 6,
+    fill: { // [!code hl:5]
+        type: 'film',
+        url: '/film/color.gif',
+        mode: 'stretch',
+    },
+    editable: true
+})
+
+app.tree.add(polygon)
+
+const film = new PaintFilm(polygon) // 提取元素中的 film  // [!code hl]
+
+polygon.on('click', () => {
+    film.togglePlay() // 点击 film 暂停/播放动图
+})
 ```
 
 ### 监听动图加载成功事件
