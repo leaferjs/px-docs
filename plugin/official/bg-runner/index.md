@@ -12,6 +12,51 @@ import Case from '/component/Case.vue'
 
 当前版本为 v1.0.1，[查看更新日志](./update.md)。
 
+## 📦 安装插件（已开源）
+
+需要安装 bg-runner 插件才能使用，[点此访问 Github 仓库](https://github.com/leaferjs/leafer-in/tree/main/packages/bg-runner)。
+
+::: code-group
+
+```sh [npm]
+npm install @leafer-in/bg-runner
+```
+
+```sh [pnpm]
+pnpm add @leafer-in/bg-runner
+```
+
+```sh [yarn]
+yarn add @leafer-in/bg-runner
+```
+
+```sh [bun]
+bun add @leafer-in/bg-runner
+```
+
+:::
+
+或通过 script 标签引入，使用全局变量 LeaferIN.bgRunner 访问插件内部功能。
+
+::: code-group
+
+```html [bg-runner.min]
+<script src="https://unpkg.com/@leafer-in/bg-runner@1.0.1/dist/bg-runner.min.js"></script>
+<script>
+  const { BackgroundRunner } = LeaferIN.bgRunner
+</script>
+```
+
+```html [bg-runner]
+<script src="https://unpkg.com/@leafer-in/bg-runner@1.0.1/dist/bg-runner.js"></script>
+<script>
+  const { BackgroundRunner } = LeaferIN.bgRunner
+</script>
+```
+
+:::
+
+<!--
 ## 📦 安装插件（本地安装）
 
 本插件暂不发布于公开 NPM 仓库，通过本地 `.tgz` 文件安装使用，需 [购买会员](https://www.pxgrow.com/plugin/view/?id=10004) 后才能使用。
@@ -69,7 +114,7 @@ bun add ./leafer/leafer-in-bg-runner-1.0.1.tgz
 </script>
 ```
 
-:::
+::: -->
 
 ## Electron 中要做到最小化后继续运行，需要确保
 

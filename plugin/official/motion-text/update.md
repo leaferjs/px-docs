@@ -2,6 +2,16 @@
 
 [查看使用文档](./index.md)
 
+## 2026 / 08 / 03
+
+> v1.0.0-beta.2
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌱 新增
+
+\-🌸 支持 [motionAround](https://www.leaferjs.com/ui/reference/UI/motion.html#motionaround-ialign-iunitpointdata) 属性
+
 ## 2026 / 07 / 10
 
 > v1.0.0-beta

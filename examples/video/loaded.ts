@@ -18,3 +18,22 @@ app.tree.add(video)
 video.once(ImageEvent.LOADED, function (e: ImageEvent) {  // [!code hl:3]
     console.log(e)
 })
+
+// 点击 video 暂停/播放视频 // [!code hl:17]
+video.on('click', () => {
+
+    video.togglePlay()
+
+    // 获取、设置视频相关参数，后续会做一个可选的视频播放控制条插件
+
+    // video.duration // 获取视频总时长，以秒为单位
+
+    // video.currentTime // 获取、设置当前视频的播放时间，以秒为单位
+
+    // video.volume // 获取、设置视频的音量，0～1
+
+    // video.paused // 视频是否已暂停
+
+    // video.ended // 视频是否已结束
+
+})

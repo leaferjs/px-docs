@@ -2,6 +2,16 @@
 
 [查看使用文档](./index.md)
 
+## 2026 / 08 / 03
+
+> v1.0.2
+
+#### 🌱 新增
+
+\-🌸 增加 [points](./index.md#points-number-ipointdata) 属性，可添加途径点坐标
+
+\-🌸 增加 [curve](./index.md#curve-ipointscurvedata) 属性，可控制曲线的曲率，或自定义平滑方式
+
 ## 2026 / 07 / 14
 
 > v1.0.1

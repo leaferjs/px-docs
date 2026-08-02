@@ -1,5 +1,5 @@
 // #Mask Editor [编辑遮罩元素]
-import { App, Group, Ellipse, Rect, Image } from 'leafer-ui'
+import { App, Group, Ellipse, Polygon, Rect } from 'leafer-ui'
 import '@leafer-in/editor' // 导入图形编辑器插件
 import '@leafer-in/viewport' // 导入视口插件 (可选)
 import '@leafer-in/bright' // 导入突出显示元素插件
@@ -15,7 +15,7 @@ const app = new App({
             // pointColor: 'green' // 遮罩控制点颜色
             // pointSize: 14, // 遮罩控制点控制点大小，默认为14
             // pointHeightScale: 0.3, // 遮罩控制点高度比例（相对pointSize), 默认为0.3
-            // spread: 1, // 遮罩控制点与元素的间距
+            spread: 6, // 遮罩控制点与元素的间距
 
             // maskEditBox: { rect: { strokeWidth: 0 } } // 遮罩编辑框配置，可覆盖默认编辑器配置
         }
@@ -40,18 +40,18 @@ const mask = new Ellipse({
     mask: 'path'
 })
 
-const image = new Image({
+const polygon = new Polygon({
     x: 50,
-    y: 50,
     width: 100,
     height: 100,
+    sides: 5,
     editable: true,
-    url: '/image/leafer.jpg'
+    fill: 'rgb(50,205,121)'
 })
 
 app.tree.add(group)
 
-group.add([mask, image])
+group.add([mask, polygon])
 
 app.tree.add(Rect.one({ editable: true, fill: '#FEB027', cornerRadius: [20, 0, 0, 20] }, 100, 300))
 app.tree.add(Rect.one({ editable: true, fill: '#FFE04B', cornerRadius: [0, 20, 20, 0] }, 220, 300))

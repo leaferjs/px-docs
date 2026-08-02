@@ -7,9 +7,8 @@ import '@leafer-in/state' // 导入交互状态插件 (可选)
 import '@pxgrow/points-editor'  // 导入节点编辑插件 // [!code hl]
 
 const app = new App({
-    view: window, editor: {
+    view: window, fill: '#F2F2F2', editor: {
         PointsEditTool: { // 编辑工具配置
-            showAddPoint: true // 显示添加点
         }
     }
 })

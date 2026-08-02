@@ -8,7 +8,7 @@ Motion Text —— 轻松实现运动路径文本效果。
 
 ## 📆 更新日志
 
-当前为 v1.0.0-beta，[查看更新日志](./update.md)。
+当前为 v1.0.0-beta.2，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（本地安装）
 
@@ -16,7 +16,7 @@ Motion Text —— 轻松实现运动路径文本效果。
 
 ### 第一步：获取插件包
 
-购买后，你将获得一个名为 `leafer-in-motion-text-1.0.0-beta.tgz` 的安装包。
+购买后，你将获得一个名为 `leafer-in-motion-text-1.0.0-beta.2.tgz` 的安装包。
 
 将该文件放置在你的项目根目录下的 `leafer` 文件夹中统一管理，安装后请勿删除。
 
@@ -27,32 +27,32 @@ Motion Text —— 轻松实现运动路径文本效果。
 ::: code-group
 
 ```sh [npm]
-npm install ./leafer/leafer-in-motion-text-1.0.0-beta.tgz
+npm install ./leafer/leafer-in-motion-text-1.0.0-beta.2.tgz
 ```
 
 ```sh [pnpm]
-pnpm add ./leafer/leafer-in-motion-text-1.0.0-beta.tgz
+pnpm add ./leafer/leafer-in-motion-text-1.0.0-beta.2.tgz
 ```
 
 ```sh [yarn]
-yarn add ./leafer/leafer-in-motion-text-1.0.0-beta.tgz
+yarn add ./leafer/leafer-in-motion-text-1.0.0-beta.2.tgz
 ```
 
 ```sh [bun]
-bun add ./leafer/leafer-in-motion-text-1.0.0-beta.tgz
+bun add ./leafer/leafer-in-motion-text-1.0.0-beta.2.tgz
 ```
 
 :::
 
 将在 package.json 中自动增加本地依赖:
 
-`"@leafer/motion-text": "file:leafer/leafer-in-motion-text-1.0.0-beta.tgz"`
+`"@leafer/motion-text": "file:leafer/leafer-in-motion-text-1.0.0-beta.2.tgz"`
 
 ---
 
 或通过 script 标签引入，使用全局变量 PxGrow.motionText 访问插件内部功能。
 
-需解压 `leafer-in-motion-text-1.0.0-beta.tgz` 文件，复制 `package/dist/motion-text.js` 使用。
+需解压 `leafer-in-motion-text-1.0.0-beta.2.tgz` 文件，复制 `package/dist/motion-text.js` 使用。
 
 ::: code-group
 
@@ -98,7 +98,7 @@ const text = new Text({
     letterSpacing: 1,
     motion: 0,
     motionText: true, // 设为运动文本，沿着路径排列 
-    motionVertical: 'above', // 文本在运动路径上方
+    motionAround: 'bottom',  // 路径在文本下方
     animation: { // 沿 path 运动至 100%
         style: { motion: { type: "percent", value: 1 } },
         duration: 3,
@@ -140,13 +140,13 @@ const path = new Ellipse({
 })
 
 const text = new Text({
-    text: 'Welcome to LeaferJS',
+    text: 'Welcome to PxGrow',
     fontSize: 20,
     fill: '#32cd79',
     editable: true,
-    motion: 370, // 运动位置
+    motion: { type: 'percent', value: 0.75 }, // 运动位置
     motionText: true, // 设为运动文本，沿着路径排列 // [!code hl]
-    motionVertical: 'above', // 文本在运动路径上方
+    motionAround: 'bottom'  // 路径在文本下方
 })
 
 group.add(path)

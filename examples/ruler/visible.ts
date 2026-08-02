@@ -5,7 +5,7 @@ import '@leafer-in/viewport' // 导入视口插件 (可选)
 import '@leafer-in/state' // 导入交互状态插件 (可选)
 import { ScrollBar } from '@leafer-in/scroll'  // 导入滚动条插件 (可选)
 
-import { Ruler } from '@leafer-in/ruler' // 导入标尺插件 // [!code hl]
+import { Ruler } from '@pxgrow/ruler' // 导入标尺插件 // [!code hl]
 
 const app = new App({
     view: window,

@@ -8,7 +8,7 @@ Ruler —— 轻松实现高性能标尺与参考线。
 
 ## 📆 更新日志
 
-当前为 v1.0.0-beta.2，[查看更新日志](./update.md)。
+当前为 v1.0.0，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（本地安装）
 
@@ -16,9 +16,9 @@ Ruler —— 轻松实现高性能标尺与参考线。
 
 ### 第一步：获取插件包
 
-购买后，你将获得一个名为 `leafer-in-ruler-1.0.0-beta.2.tgz` 的安装包。
+购买后，你将获得一个名为 `pxgrow-ruler-1.0.0.tgz` 的安装包。
 
-将该文件放置在你的项目根目录下的 `leafer` 文件夹中统一管理，安装后请勿删除。
+将该文件放置在你的项目根目录下的 `pxgrow` 文件夹中统一管理，安装后请勿删除。
 
 ### 第二步：本地安装命令
 
@@ -27,37 +27,37 @@ Ruler —— 轻松实现高性能标尺与参考线。
 ::: code-group
 
 ```sh [npm]
-npm install ./leafer/leafer-in-ruler-1.0.0-beta.2.tgz
+npm install ./pxgrow/pxgrow-ruler-1.0.0.tgz
 ```
 
 ```sh [pnpm]
-pnpm add ./leafer/leafer-in-ruler-1.0.0-beta.2.tgz
+pnpm add ./pxgrow/pxgrow-ruler-1.0.0.tgz
 ```
 
 ```sh [yarn]
-yarn add ./leafer/leafer-in-ruler-1.0.0-beta.2.tgz
+yarn add ./pxgrow/pxgrow-ruler-1.0.0.tgz
 ```
 
 ```sh [bun]
-bun add ./leafer/leafer-in-ruler-1.0.0-beta.2.tgz
+bun add ./pxgrow/pxgrow-ruler-1.0.0.tgz
 ```
 
 :::
 
 将在 package.json 中自动增加本地依赖:
 
-`"@leafer/ruler": "file:leafer/leafer-in-ruler-1.0.0-beta.2.tgz"`
+`"@leafer/ruler": "file:leafer/pxgrow-ruler-1.0.0.tgz"`
 
 ---
 
 或通过 script 标签引入，使用全局变量 PxGrow.ruler 访问插件内部功能。
 
-需解压 `leafer-in-ruler-1.0.0-beta.2.tgz` 文件，复制 `package/dist/ruler.js` 使用。
+需解压 `pxgrow-ruler-1.0.0.tgz` 文件，复制 `package/dist/ruler.js` 使用。
 
 ::: code-group
 
 ```html [web]
-<script src="/lib/leafer/ruler.js"></script>
+<script src="/lib/pxgrow/ruler.js"></script>
 <script>
   const { Ruler } = PxGrow.ruler
 </script>
@@ -77,7 +77,7 @@ import '@leafer-in/viewport' // 导入视口插件 (可选)
 import '@leafer-in/state' // 导入交互状态插件 (可选)
 import { ScrollBar } from '@leafer-in/scroll'  // 导入滚动条插件 (可选)
 
-import { Ruler } from '@leafer-in/ruler' // 导入标尺插件 // [!code hl]
+import { Ruler } from '@pxgrow/ruler' // 导入标尺插件 // [!code hl]
 
 const app = new App({
     view: window,
@@ -133,7 +133,7 @@ import '@leafer-in/viewport' // 导入视口插件 (可选)
 import '@leafer-in/state' // 导入交互状态插件 (可选)
 import { ScrollBar } from '@leafer-in/scroll'  // 导入滚动条插件 (可选)
 
-import { Ruler } from '@leafer-in/ruler' // 导入标尺插件 // [!code hl]
+import { Ruler } from '@pxgrow/ruler' // 导入标尺插件 // [!code hl]
 
 const app = new App({
     view: window,
@@ -166,7 +166,7 @@ import '@leafer-in/viewport' // 导入视口插件 (可选)
 import '@leafer-in/state' // 导入交互状态插件 (可选)
 import { ScrollBar } from '@leafer-in/scroll'  // 导入滚动条插件 (可选)
 
-import { Ruler } from '@leafer-in/ruler' // 导入标尺插件 // [!code hl]
+import { Ruler } from '@pxgrow/ruler' // 导入标尺插件 // [!code hl]
 
 const app = new App({
     view: window,
@@ -246,7 +246,7 @@ import '@leafer-in/viewport' // 导入视口插件 (可选)
 import '@leafer-in/state' // 导入交互状态插件 (可选)
 import { ScrollBar } from '@leafer-in/scroll'  // 导入滚动条插件 (可选)
 
-import { Ruler } from '@leafer-in/ruler' // 导入标尺插件 // [!code hl]
+import { Ruler } from '@pxgrow/ruler' // 导入标尺插件 // [!code hl]
 
 const app = new App({
     view: window,

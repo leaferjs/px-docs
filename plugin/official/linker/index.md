@@ -6,13 +6,15 @@ import Case from '/component/Case.vue'
 
 Linker —— 高性能 Canvas 连线元素。
 
+如需可视化创建、编辑连线，可使用 [Linker Editor 插件](../linker-editor/index.md)。
+
 ::: tip 继承
 Linker &nbsp;>&nbsp; [Line](https://www.leaferjs.com/ui/reference/display/Line.html) &nbsp;>&nbsp; [UI](https://www.leaferjs.com/ui/reference/display/UI.html)
 :::
 
 ## 更新日志
 
-当前版本为 v1.0.1，[查看更新日志](./update.md)。
+当前版本为 v1.0.2，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（本地安装）
 
@@ -20,7 +22,7 @@ Linker &nbsp;>&nbsp; [Line](https://www.leaferjs.com/ui/reference/display/Line.h
 
 ### 第一步：获取插件包
 
-购买后，你将获得一个名为 `leafer-in-linker-1.0.1.tgz` 的安装包。
+购买后，你将获得一个名为 `leafer-in-linker-1.0.2.tgz` 的安装包。
 
 将该文件放置在你的项目根目录下的 `leafer` 文件夹中统一管理，安装后请勿删除。
 
@@ -31,22 +33,22 @@ Linker &nbsp;>&nbsp; [Line](https://www.leaferjs.com/ui/reference/display/Line.h
 ::: code-group
 
 ```sh [npm]
-npm install ./leafer/leafer-in-linker-1.0.1.tgz
+npm install ./leafer/leafer-in-linker-1.0.2.tgz
 
 ```
 
 ```sh [pnpm]
-pnpm add ./leafer/leafer-in-linker-1.0.1.tgz
+pnpm add ./leafer/leafer-in-linker-1.0.2.tgz
 
 ```
 
 ```sh [yarn]
-yarn add ./leafer/leafer-in-linker-1.0.1.tgz
+yarn add ./leafer/leafer-in-linker-1.0.2.tgz
 
 ```
 
 ```sh [bun]
-bun add ./leafer/leafer-in-linker-1.0.1.tgz
+bun add ./leafer/leafer-in-linker-1.0.2.tgz
 
 ```
 
@@ -54,13 +56,13 @@ bun add ./leafer/leafer-in-linker-1.0.1.tgz
 
 将在 package.json 中自动增加本地依赖:
 
-`"@leafer-in/linker": "file:leafer/leafer-in-linker-1.0.1.tgz"`
+`"@leafer-in/linker": "file:leafer/leafer-in-linker-1.0.2.tgz"`
 
 ---
 
 或通过 script 标签引入，使用全局变量 LeaferIN.linker 访问插件内部功能。
 
-解压 `leafer-in-linker-1.0.1.tgz` ，复制 `package/dist/linker.js` 使用。
+解压 `leafer-in-linker-1.0.2.tgz` ，复制 `package/dist/linker.js` 使用。
 
 ::: code-group
 
@@ -118,6 +120,39 @@ interface IOptionPointData {
 ### endPoint: `ILinkerPointData`
 
 连线的终点。
+
+## points 模式
+
+可通过 points 添加连线的途径点。
+
+### points: `number`[] | [IPointData](https://www.leaferjs.com/ui/reference/interface/math/Math#ipointdata)[]
+
+可通过坐标数组 [ x1,y1, x2,y2, ...] 添加连线的途径点（高性能）。
+
+或通过坐标对象数组 [ {x, y}, {x, y} ...] 添加连线的途径点 （可读性高，性能一般）。
+
+### curve: `IPointsCurveData`
+
+平滑途径点的方式。
+
+支持 [自定义平滑 points 类型](https://www.leaferjs.com/ui/reference/interface/ui/PathData.html#ipointscurve)。
+
+```ts
+interface IPointsCurveData {
+  type: IPointsCurveType
+  value: IPointsCurveValue
+}
+
+type IPointsCurveType =
+  | 'C' // 使用三次贝塞尔曲线平滑 points，已扩展， 默认值
+  | (string & {})
+
+// 默认对象
+linker.curve = {
+  type: 'C',
+  value: 0.5, // 曲率，取值范围 0-1,
+}
+```
 
 ## 计算属性（只读）
 

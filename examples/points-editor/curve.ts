@@ -9,7 +9,8 @@ import '@pxgrow/points-editor'  // 导入节点编辑插件 // [!code hl]
 const app = new App({
     view: window, editor: {
         PointsEditTool: { // 编辑工具配置
-            showAddPoint: true // 显示添加点（位于选中节点的两侧线段中间）
+            showAddPoint: 'all',
+            // addPoint: { opacity: 1, fill: '#836DFF', stroke: 'white' }, // 定义添加点样式
         }
     }
 })
@@ -20,7 +21,7 @@ const line = new Line({
     points: [0, 270, 60, 180, 120, 240, 180, 120, 225, 150, 270, 30, 300, 270],
     curve: 0.4,
     strokeWidth: 5,
-    stroke: "#32cd79",
+    stroke: "#000",
     editable: true
 })
 

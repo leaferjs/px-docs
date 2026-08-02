@@ -6,9 +6,11 @@ import Case from '/component/Case.vue'
 
 Points Editor —— 轻松编辑图形节点。
 
+本插件依赖 [Path Node 插件](../path-node/index.md)。
+
 ## 📆 更新日志
 
-当前为 v1.0.0-beta，[查看更新日志](./update.md)。
+当前为 v1.0.0，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（本地安装）
 
@@ -16,7 +18,7 @@ Points Editor —— 轻松编辑图形节点。
 
 ### 第一步：获取插件包
 
-购买后，你将获得一个名为 `pxgrow-points-editor-1.0.0-beta.tgz` 的安装包。
+购买后，你将获得一个名为 `pxgrow-points-editor-1.0.0.tgz` 的安装包。
 
 将该文件放置在你的项目根目录下的 `pxgrow` 文件夹中统一管理，安装后请勿删除。
 
@@ -27,32 +29,32 @@ Points Editor —— 轻松编辑图形节点。
 ::: code-group
 
 ```sh [npm]
-npm install ./pxgrow/pxgrow-points-editor-1.0.0-beta.tgz
+npm install ./pxgrow/pxgrow-points-editor-1.0.0.tgz
 ```
 
 ```sh [pnpm]
-pnpm add ./pxgrow/pxgrow-points-editor-1.0.0-beta.tgz
+pnpm add ./pxgrow/pxgrow-points-editor-1.0.0.tgz
 ```
 
 ```sh [yarn]
-yarn add ./pxgrow/pxgrow-points-editor-1.0.0-beta.tgz
+yarn add ./pxgrow/pxgrow-points-editor-1.0.0.tgz
 ```
 
 ```sh [bun]
-bun add ./pxgrow/pxgrow-points-editor-1.0.0-beta.tgz
+bun add ./pxgrow/pxgrow-points-editor-1.0.0.tgz
 ```
 
 :::
 
 将在 package.json 中自动增加本地依赖:
 
-`"@pxgrow/points-editor": "file:pxgrow/pxgrow-points-editor-1.0.0-beta.tgz"`
+`"@pxgrow/points-editor": "file:pxgrow/pxgrow-points-editor-1.0.0.tgz"`
 
 ---
 
 或通过 script 标签引入，使用全局变量 PxGrow.pointsEditor 访问插件内部功能。
 
-需解压 `pxgrow-points-editor-1.0.0-beta.tgz` 文件，复制 `package/dist/points-editor.js` 使用。
+需解压 `pxgrow-points-editor-1.0.0.tgz` 文件，复制 `package/dist/points-editor.js` 使用。
 
 ::: code-group
 
@@ -67,48 +69,6 @@ bun add ./pxgrow/pxgrow-points-editor-1.0.0-beta.tgz
 
 ## 示例
 
-### Line 元素
-
-```ts
-// #Points Editor [Line 元素]
-import { App, Line } from 'leafer-ui'
-import '@leafer-in/editor' // 导入图形编辑器插件
-import '@leafer-in/viewport' // 导入视口插件 (可选)
-import '@leafer-in/state' // 导入交互状态插件 (可选)
-
-import '@pxgrow/points-editor'  // 导入节点编辑插件 // [!code hl]
-
-const app = new App({
-    view: window, editor: {
-        PointsEditTool: { // 编辑工具配置
-            // pathEditable: false // 是否可编辑带path属性的元素， 默认为 false
-            // showAddPoint: false // 是否显示添加点（位于选中节点的两侧线段中间）, 默认为 false
-            // point: {} // 控制点样式
-            // beginPoint: {} // 起始控制点样式
-        }
-    }
-})
-
-const line = new Line({
-    x: 100,
-    y: 100,
-    points: [0, 270, 60, 180, 120, 240, 180, 120, 225, 150, 270, 30, 300, 270],
-    strokeWidth: 5,
-    strokeJoin: 'round',
-    stroke: "#32cd79",
-    // editOuter: 'PointsEditTool', // 带 points 属性的元素默认为 PointsEditTool，可以不用设置 // [!code hl]
-    editable: true
-})
-
-app.tree.add(line)
-
-// 模拟点击元素，显示编辑工具
-setTimeout(() => {
-    app.editor.select(line)
-}, 600)
-
-```
-
 ### Line 曲线
 
 ```ts
@@ -121,9 +81,14 @@ import '@leafer-in/state' // 导入视口插件 (可选)
 import '@pxgrow/points-editor'  // 导入节点编辑插件 // [!code hl]
 
 const app = new App({
-    view: window, editor: {
+    view: window, fill: '#F2F2F2', editor: {
         PointsEditTool: { // 编辑工具配置
-            showAddPoint: true // 显示添加点（位于选中节点的两侧线段中间）
+            // pathEditable: false // 是否可编辑带path属性的元素， 默认为 false
+            // showAddPoint: false 
+            // point: {} // 控制点样式
+            // beginPoint: {} // 起始控制点样式
+            showAddPoint: 'all', // 是否显示添加点, 默认为 false, 设为 'two' 或 true 时只显示 附近的两个添加点
+            // addPoint: { opacity: 1, fill: '#836DFF', stroke: 'white' }, // 定义添加点样式
         }
     }
 })
@@ -134,7 +99,7 @@ const line = new Line({
     points: [0, 270, 60, 180, 120, 240, 180, 120, 225, 150, 270, 30, 300, 270],
     curve: 0.4,
     strokeWidth: 5,
-    stroke: "#32cd79",
+    stroke: "#000",
     editable: true
 })
 
@@ -159,8 +124,9 @@ import '@leafer-in/state' // 导入交互状态插件 (可选)
 import '@pxgrow/points-editor'  // 导入节点编辑插件 // [!code hl]
 
 const app = new App({
-    view: window, editor: {
+    view: window, fill: '#F2F2F2', editor: {
         PointsEditTool: { // 编辑工具配置  // [!code hl:6]
+            showAddPoint: 'all',
             editBox: {
                 editBox: false, // 隐藏编辑框
                 moveable: false // 是否能移动编辑框
@@ -173,9 +139,49 @@ const line = new Line({
     x: 100,
     y: 100,
     points: [0, 270, 60, 180, 120, 240, 180, 120, 225, 150, 270, 30, 300, 270],
+    curve: 0.4,
     strokeWidth: 5,
     strokeJoin: 'round',
-    stroke: "#32cd79",
+    stroke: "#000",
+    editable: true
+})
+
+app.tree.add(line)
+
+// 模拟点击元素，显示编辑工具
+setTimeout(() => {
+    app.editor.select(line)
+}, 600)
+
+```
+
+### Line 折线
+
+```ts
+// #Points Editor [Line 折线]
+import { App, Line } from 'leafer-ui'
+import '@leafer-in/editor' // 导入图形编辑器插件
+import '@leafer-in/viewport' // 导入视口插件 (可选)
+import '@leafer-in/state' // 导入交互状态插件 (可选)
+
+import '@pxgrow/points-editor'  // 导入节点编辑插件 // [!code hl]
+
+const app = new App({
+    view: window, fill: '#F2F2F2', editor: {
+        PointsEditTool: { // 编辑工具配置
+
+        }
+    }
+})
+
+const line = new Line({
+    x: 100,
+    y: 100,
+    points: [0, 270, 60, 180, 120, 240, 180, 120, 225, 150, 270, 30, 300, 270],
+    strokeWidth: 5,
+    strokeJoin: 'round',
+    stroke: "#000",
+    // editOuter: 'PointsEditTool', // 带 points 属性的元素默认为 PointsEditTool，可以不用设置 // [!code hl]
     editable: true
 })
 
@@ -200,9 +206,8 @@ import '@leafer-in/state' // 导入交互状态插件 (可选)
 import '@pxgrow/points-editor'  // 导入节点编辑插件 // [!code hl]
 
 const app = new App({
-    view: window, editor: {
+    view: window, fill: '#F2F2F2', editor: {
         PointsEditTool: { // 编辑工具配置
-            showAddPoint: true // 显示添加点
         }
     }
 })
@@ -240,10 +245,10 @@ import '@leafer-in/state' // 导入交互状态插件 (可选)
 import '@pxgrow/points-editor'  // 导入节点编辑插件 // [!code hl]
 
 const app = new App({
-    view: window, editor: {
+    view: window, fill: '#F2F2F2', editor: {
         PointsEditTool: { // 编辑工具配置
             pathEditable: true, // 启用编辑带 path 属性的元素  // [!code hl]
-            showAddPoint: true // 显示添加点（
+            showAddPoint: 'all'
         }
     }
 })
@@ -253,7 +258,7 @@ const path = new Path({
     y: 100,
     path: 'M30 270C8.96 120.52 8.96 40.52 30 30 58.44 15.78 90 210 150 210 210 210 241.56 15.78 270 30 291.04 40.52 291.04 120.52 270 270',
     strokeWidth: 5,
-    stroke: "#32cd79",
+    stroke: "#000",
     // editOuter: 'PointsEditTool', // 带 path 属性的元素默认为 PointsEditTool ，可以不用设置 // [!code hl]
     editable: true
 })

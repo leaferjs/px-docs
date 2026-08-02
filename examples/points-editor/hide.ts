@@ -7,8 +7,9 @@ import '@leafer-in/state' // 导入交互状态插件 (可选)
 import '@pxgrow/points-editor'  // 导入节点编辑插件 // [!code hl]
 
 const app = new App({
-    view: window, editor: {
+    view: window, fill: '#F2F2F2', editor: {
         PointsEditTool: { // 编辑工具配置  // [!code hl:6]
+            showAddPoint: 'all',
             editBox: {
                 editBox: false, // 隐藏编辑框
                 moveable: false // 是否能移动编辑框
@@ -21,9 +22,10 @@ const line = new Line({
     x: 100,
     y: 100,
     points: [0, 270, 60, 180, 120, 240, 180, 120, 225, 150, 270, 30, 300, 270],
+    curve: 0.4,
     strokeWidth: 5,
     strokeJoin: 'round',
-    stroke: "#32cd79",
+    stroke: "#000",
     editable: true
 })
 

@@ -1,5 +1,171 @@
 # PxGrow 更新日志
 
+## 2026 / 08 / 03
+
+> **v1.2.1**
+
+### [Linker 插件](/plugin/official/linker/index.md)
+
+> v1.0.2
+
+#### 🌱 新增
+
+\-🌸 增加 [points](/plugin/official/linker/index.md#points-number-ipointdata) 属性，可添加途径点坐标
+
+\-🌸 增加 [curve](/plugin/official/linker/index.md#curve-ipointscurvedata) 属性，可控制曲线的曲率，或自定义平滑方式
+
+### [Motion Text 插件](/plugin/official/motion-text/index.md)
+
+> v1.0.0-beta.2
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌱 新增
+
+\-🌸 支持 [motionAround](https://www.leaferjs.com/ui/reference/UI/motion.html#motionaround-ialign-iunitpointdata) 属性
+
+### [Path Editor 插件](/plugin/official/path-editor/index.md)
+
+> v1.1.3
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌱 新增
+
+\-🌸 支持配置 showAddPoints 为 'all' 显示所有中间的添加点
+
+\-🌸 支持配置 addPoint 对象为添加点样式
+
+#### 🌿 优化
+
+\-🌸 拆分出 [Path Node 插件](/plugin/official/path-node/index.md), 让 [Linker Editor 插件](/plugin/official/linker-editor/index.md)、[Points Editor 插件](/plugin/official/linker-editor/index.md)可以共用节点代码
+
+\-🌸 简化配置逻辑代码，共用主版本编辑工具的属性、方法，减少代码量
+
+### [Path Node 插件](/plugin/official/path-node/index.md)
+
+> v1.0.0
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌱 上线首个正式版本
+
+从 [Path Editor 插件](/plugin/official/path-editor/index.md) 中拆分出来的成熟代码
+
+### [Linker Editor 插件](/plugin/official/linker-editor/index.md)
+
+> v1.0.0
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌱 新增
+
+\-🌸 支持拖拽添加途径节点
+
+\-🌸 支持双击途径点添加文本
+
+#### 🌿 优化
+
+\-🌸 简化配置逻辑代码，共用主版本编辑工具的属性、方法，减少代码量
+
+### [Points Editor 插件](/plugin/official/points-editor/index.md)
+
+> v1.0.0
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌱 新增
+
+\-🌸 支持配置 showAddPoints 为 'all' 显示所有中间的添加点
+
+\-🌸 支持配置 addPoint 对象为添加点样式
+
+#### 🌿 优化
+
+\-🌸 简化配置逻辑代码，共用主版本编辑工具的属性、方法，减少代码量
+
+### [Motion Editor 插件](/plugin/official/motion-editor/index.md)
+
+> v1.0.0
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌱 新增
+
+\-🌸 支持获取离某个坐标最近的运动点motion，可用于给路径添加运动文本、元素
+
+\-🌸 支持单独选中并拖拽运动文本、元素
+
+#### 🌿 优化
+
+\-🌸 简化配置逻辑代码，共用主版本编辑工具的属性、方法，减少代码量
+
+### [Mask Editor 插件](/plugin/official/mask-editor/index.md)
+
+> v1.0.0
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌱 新增
+
+\-🌸 经用户生产环境使用，验证无明显问题，发布正式版本
+
+#### 🌿 优化
+
+\-🌸 简化配置逻辑代码，共用主版本编辑工具的属性、方法，减少代码量
+
+### [Shape Editor 插件](/plugin/official/shape-editor/index.md)
+
+> v1.0.0
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌱 新增
+
+\-🌸 经用户生产环境使用，验证无明显问题，发布正式版本
+
+#### 🌿 优化
+
+\-🌸 简化配置逻辑代码，共用主版本编辑工具的属性、方法，减少代码量
+
+### [Ruler 插件](/plugin/official/ruler/index.md)
+
+> v1.0.0
+
+#### 🌱 新增
+
+\-🌸 经用户生产环境使用，验证无明显问题，发布正式版本
+
+### [Clipper 插件](/plugin/official/clipper/index.md)
+
+> v1.1.1
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌿 优化
+
+\-🌸 简化配置逻辑代码，共用主版本编辑工具的属性、方法，减少代码量
+
+### [Tiler 插件](/plugin/official/tiler/index.md)
+
+> v1.0.2
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌿 优化
+
+\-🌸 简化配置逻辑代码，共用主版本编辑工具的属性、方法，减少代码量
+
+### [Gradient Editor 插件](/plugin/official/gradient-editor/index.md)
+
+> v1.0.2
+
+依赖于 LeaferJS [ v2.2.9](https://www.leaferjs.com/ui/update/#_2026-08-03)
+
+#### 🌿 优化
+
+\-🌸 简化配置逻辑代码，共用主版本编辑工具的属性、方法，减少代码量
+
 ## 2026 / 07 / 24
 
 > **v1.2.0**

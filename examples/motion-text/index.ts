@@ -26,7 +26,7 @@ const text = new Text({
     letterSpacing: 1,
     motion: 0,
     motionText: true, // 设为运动文本，沿着路径排列 
-    motionVertical: 'above', // 文本在运动路径上方
+    motionAround: 'bottom',  // 路径在文本下方
     animation: { // 沿 path 运动至 100%
         style: { motion: { type: "percent", value: 1 } },
         duration: 3,
