@@ -74,7 +74,8 @@ app.editor.on(LinkerEditorEvent.CREATE_END, () => { // 创建结束
 // 2. 监听全局事件, 自定义编辑连线
 
 app.editor.on(LinkerEditorEvent.CHANGE_START_POINT, (e: LinkerEditorEvent) => { // 拖拽中
-    e.linker.startPoint = linker.createStartPoint(e, e.target, {
+    const currentLinker = e.linker as Linker
+    currentLinker.startPoint = currentLinker.createStartPoint(e, e.target, {
         // 吸附模式
         // mode: 'edge' // 自动吸附到元素Box包围盒边缘，默认模式
         // mode: 'four' // 自动吸附到元素Box包围盒上的4个方向
@@ -84,7 +85,8 @@ app.editor.on(LinkerEditorEvent.CHANGE_START_POINT, (e: LinkerEditorEvent) => { 
 })
 
 app.editor.on(LinkerEditorEvent.CHANGE_END_POINT, (e: LinkerEditorEvent) => { // 拖拽中
-    e.linker.endPoint = linker.createEndPoint(e, e.target, {
+    const currentLinker = e.linker as Linker
+    currentLinker.endPoint = currentLinker.createEndPoint(e, e.target, {
         // 吸附模式
         // mode: 'edge' // 自动吸附到元素Box包围盒边缘，默认模式
         // mode: 'four' // 自动吸附到元素Box包围盒上的4个方向

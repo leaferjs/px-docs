@@ -65,7 +65,9 @@ import '@pxgrow/path-editor' // 导入路径编辑插件 // [!code hl]
 const app = new App({
     view: window, editor: {
         PathEditor: {
-            showAddPoint: true, // 是否显示添加点（位于选中节点的两侧线段中间）
+            showAddPoint: true, // 是否显示添加点（位于选中节点的两侧线段中间），设为 'all' 可显示所有添加点
+            // addPoint: { opacity: 1, fill: '#836DFF', stroke: 'white' }, // 定义添加点样式
+            // addPointTrigger?: 'press' | 'drag', // 添加点的触发方式，默认为 press, drag 表示拖动后才会创建点
             editBox: { // 可临时覆盖editor配置， 多选配置同editor一致
                 // boxSelect: false,  // 控制是否能框选节点
             }

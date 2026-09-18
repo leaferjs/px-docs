@@ -1,4 +1,4 @@
-// #Path Editor [编辑路径]
+// #Path Editor [显示所有添加点]
 import { App, Path } from 'leafer-ui'
 import '@leafer-in/editor' // 导入图形编辑器插件
 import '@leafer-in/viewport' // 导入视口插件 (可选)
@@ -9,12 +9,8 @@ import '@pxgrow/path-editor' // 导入路径编辑插件 // [!code hl]
 const app = new App({
     view: window, editor: {
         PathEditor: {
-            showAddPoint: true, // 是否显示添加点（位于选中节点的两侧线段中间），设为 'all' 可显示所有添加点
+            showAddPoint: 'all', // 是否显示添加点, 默认为 false, 设为 'two' 或 true 时只显示 附近的两个添加点
             // addPoint: { opacity: 1, fill: '#836DFF', stroke: 'white' }, // 定义添加点样式
-            // addPointTrigger?: 'press' | 'drag', // 添加点的触发方式，默认为 press, drag 表示拖动后才会创建点
-            editBox: { // 可临时覆盖editor配置， 多选配置同editor一致
-                // boxSelect: false,  // 控制是否能框选节点
-            }
         }
     }
 })

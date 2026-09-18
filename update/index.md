@@ -1,5 +1,45 @@
 # PxGrow 更新日志
 
+## 2026 / 09 / 17
+
+> **v1.2.3**
+
+### [Flow Editor 插件](/plugin/official/flow-editor/index.md)
+
+> v1.0.0-alpha
+
+依赖于 LeaferJS [ v2.2.11](https://www.leaferjs.com/ui/update/#_2026-09-17)
+
+#### 🌱 上线首个内侧版本
+
+## 2026 / 08 / 04
+
+> **v1.2.2**
+
+### [Path Node 插件](/plugin/official/path-node/index.md)
+
+> v1.0.1
+
+#### 🌱 新增
+
+\- 🌸 增加 addPointTrigger 配置，可配置 'press' 或 'drag' 方式添加点
+
+#### 🌷 感谢反馈
+
+@闰土
+
+### [Path Editor 插件](/plugin/official/path-editor/index.md)
+
+> v1.1.4
+
+#### 🌿 优化
+
+\- 🌸 还原拆分 [Path Node 插件](/plugin/official/path-node/index.md) 后意外变化的逻辑：多选拖动功能、添加点的方式
+
+#### 🌷 感谢反馈
+
+@闰土
+
 ## 2026 / 08 / 03
 
 > **v1.2.1**
