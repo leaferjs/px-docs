@@ -1,4 +1,4 @@
-// #Flow Editor [阻止同步 resize 向上传递]
+// #Flow Editor [阻止同步 resize]
 import { App, Frame, Box, Text, PointerEvent } from 'leafer-ui'
 import '@leafer-in/editor' // 导入图形编辑器插件
 import '@leafer-in/viewport' // 导入视口插件 (可选)
@@ -36,7 +36,7 @@ const frame = new Frame(
     {
         flow: 'y', editable: true, stroke: '#0008', strokeWidth: 10, strokeAlign: 'outside', x: 150, y: 90, width: 400, height: 500,
         editFlowConfig: {
-            syncResize: false, // 阻止同步 resize 向上传递 // [!code hl]
+            syncResize: false, // 设为 false，可阻止同步 resize 的影响 // [!code hl]
             insertFit: true, // 编辑过程中，是否强制自动填满 x、y 轴剩余空间，可单独设置 x 或 y 
         },
         children: [
@@ -92,7 +92,7 @@ app.sky.add(new Flow({
 }))
 
 // 显示选中元素宽高信息
-const emptyText = '画板设置 editFlowConfig.syncResize 为 false, 可阻止同步 resize 向上传递'
+const emptyText = '画板设置 editFlowConfig.syncResize 为 false, 可阻止同步 resize 修改画板宽高'
 
 const text = new Text({ x: 150, y: 50, text: emptyText, fill: '#999' })
 app.tree.add(text)
