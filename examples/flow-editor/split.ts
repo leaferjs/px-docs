@@ -1,4 +1,4 @@
-// #Flow Editor [移入移出、编辑自动布局元素]
+// #Flow Editor [沿自动布局的四个方向插入元素]
 import { App, Frame, Box, Text, PointerEvent } from 'leafer-ui'
 import '@leafer-in/editor' // 导入图形编辑器插件
 import '@leafer-in/viewport' // 导入视口插件 (可选)
@@ -17,7 +17,19 @@ const app = new App({
         skipNested: true,
         FlowEditTool: { // 自动布局编辑配置
             insert: {
-                // line: { stroke: 'blue' }, // 插入光标的线条 Line 样式
+                // 沿自动布局的四个方向插入元素的配置，通过切分 Flow 实现 // [!code hl:13]
+                // splitLine: { stroke: 'red' },  // 切分 Flow 插入光标的线条样式
+                allowSplitFlow: true, // 是否允许切分 Flow，以达到在反向轴上插入元素（需在元素外面再包裹一个Flow），默认为 false
+                createSplitFlow(data) { // 切分 Flow后，会创建一个外部包裹Flow, 可自定义（可选方法）
+                    console.log('insert data', data)
+                    return new Flow({
+                        id: '12345',
+                        editFlowConfig: {
+                            insertFit: true,
+                            isSplitFlow: true // 切分Flow的专属标识，子元素全部移出后，会自动销毁
+                        }
+                    })
+                }
             }
         }
     },
@@ -76,7 +88,9 @@ app.sky.add(new Flow({
 }))
 
 // 显示选中元素宽高信息
-const text = new Text({ x: 150, y: 50, text: '未选中元素', fill: '#999' })
+const emptyText = '编辑器配置 FlowEditTool.insert.allowSplitFlow 为 true, 可沿自动布局的四个方向插入元素'
+
+const text = new Text({ x: 150, y: 50, text: emptyText, fill: '#999' })
 app.tree.add(text)
 
 editor.on(['editor.select', 'drag'], updateInfo)
@@ -84,5 +98,5 @@ editor.on(['editor.select', 'drag'], updateInfo)
 function updateInfo() {
     const { element } = editor
     if (element) text.text = '选中元素 width：' + Math.round(element.width) + 'px (' + (element.autoWidth ? '自动宽度' : '固定宽度') + '),   height：' + Math.round(element.height) + 'px (' + (element.autoHeight ? '自动高度' : '固定高度') + ')'
-    else text.text = '未选中元素'
+    else text.text = emptyText
 }

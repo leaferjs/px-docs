@@ -1,4 +1,4 @@
-// #Flow Editor [移入移出、编辑自动布局元素]
+// #Flow Editor [阻止插入子元素]
 import { App, Frame, Box, Text, PointerEvent } from 'leafer-ui'
 import '@leafer-in/editor' // 导入图形编辑器插件
 import '@leafer-in/viewport' // 导入视口插件 (可选)
@@ -11,17 +11,7 @@ import { Flow } from '@leafer-in/flow' // 导入自动布局插件
 import '@pxgrow/flow-editor' // 导入自动布局编辑插件 // [!code hl]
 
 
-const app = new App({
-    view: window, fill: '#333', editor: {
-        bright: true,
-        skipNested: true,
-        FlowEditTool: { // 自动布局编辑配置
-            insert: {
-                // line: { stroke: 'blue' }, // 插入光标的线条 Line 样式
-            }
-        }
-    },
-})
+const app = new App({ view: window, fill: '#333', editor: { bright: true, skipNested: true }, })
 
 // 外部可拖动方块
 app.tree.add([
@@ -44,8 +34,14 @@ const frame = new Frame(
             new Flow({
                 fill: 'white', editable: true, autoWidth: 1, autoHeight: 1, padding: 10, gap: 10,
                 children: [
-                    new Flow({ flow: 'y', fill: '#999', editable: true, autoHeight: 1, width: 150, padding: 5, gap: 5 }),
-                    new Flow({ flow: 'y', fill: '#999', editable: true, autoWidth: 1, autoHeight: 1, padding: 5, gap: 5 }),
+                    new Flow({
+                        flow: 'y', fill: '#999', editable: true, autoHeight: 1, width: 150, padding: 5, gap: 5,
+                        editFlowConfig: {
+                            insertable: false // 编辑过程中是否允许插入子元素，设为 false 表示阻止，默认为true  // [!code hl]
+                        },
+                        children: [{ tag: 'Text', editable: true, text: 'insertable = false', fill: 'white' }]
+                    }),
+                    new Flow({ flow: 'y', fill: '#999', editable: true, autoWidth: 1, autoHeight: 1, padding: 5, gap: 5, children: [{ tag: 'Text', editable: true, text: 'insertable = true', fill: 'white' }] }),
                 ],
             }),
             // Footer
@@ -76,13 +72,15 @@ app.sky.add(new Flow({
 }))
 
 // 显示选中元素宽高信息
-const text = new Text({ x: 150, y: 50, text: '未选中元素', fill: '#999' })
+const emptyText = '容器元素设置 editFlowConfig.insertable 为 false, 可阻止插入子元素'
+
+const text = new Text({ x: 150, y: 50, text: emptyText, fill: '#999' })
 app.tree.add(text)
 
 editor.on(['editor.select', 'drag'], updateInfo)
 
 function updateInfo() {
     const { element } = editor
-    if (element) text.text = '选中元素 width：' + Math.round(element.width) + 'px (' + (element.autoWidth ? '自动宽度' : '固定宽度') + '),   height：' + Math.round(element.height) + 'px (' + (element.autoHeight ? '自动高度' : '固定高度') + ')'
-    else text.text = '未选中元素'
+    if (element) text.text = '选中元素 width：' + Math.round(element.width) + 'px (' + (element.autoWidth ? '自动宽度' : '固定宽度') + '),   height：' + Math.round(element.height) + 'px (' + (element.autoHeight ? '自动高度' : '固定高度') + ')' + ', zIndx：' + element.zIndex
+    else text.text = emptyText
 }

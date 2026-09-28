@@ -1,4 +1,4 @@
-// #Flow Editor [移入移出、编辑自动布局元素]
+// #Flow Editor [beforeInsert 事件钩子]
 import { App, Frame, Box, Text, PointerEvent } from 'leafer-ui'
 import '@leafer-in/editor' // 导入图形编辑器插件
 import '@leafer-in/viewport' // 导入视口插件 (可选)
@@ -17,7 +17,25 @@ const app = new App({
         skipNested: true,
         FlowEditTool: { // 自动布局编辑配置
             insert: {
-                // line: { stroke: 'blue' }, // 插入光标的线条 Line 样式
+                beforeInsert(data) { // 插入元素前的事件钩子  // [!code hl:20]
+                    const { target, points, insertType, splitFlow, event } = data
+
+                    console.log(
+                        target, // 插入的参考对象，可能为空
+                        points, // 插入光标的位置
+                        insertType, // 插入类型，before: 插入target前面，after: 插入到target后面，child：插入为target子元素
+                        splitFlow, // 是否切分Flow, x: 表示切分x轴，y: 表示切分y轴
+                        event // 原生的 DragEvent 事件，带事件坐标信息
+                    )
+
+                    if (target && (target.fill === '#888' || (target as Text).text === '阻止事件')) {
+                        return false // 返回 false 将阻止插入元素
+                    } else if (target) {
+                        // 可修改 data 数据后返回
+                    }
+
+                    return true
+                }
             }
         }
     },
@@ -44,7 +62,7 @@ const frame = new Frame(
             new Flow({
                 fill: 'white', editable: true, autoWidth: 1, autoHeight: 1, padding: 10, gap: 10,
                 children: [
-                    new Flow({ flow: 'y', fill: '#999', editable: true, autoHeight: 1, width: 150, padding: 5, gap: 5 }),
+                    new Flow({ flow: 'y', fill: '#888', editable: true, autoHeight: 1, width: 150, padding: 5, gap: 5, children: [{ tag: 'Text', editable: true, text: '阻止事件', fill: 'white' }] }),
                     new Flow({ flow: 'y', fill: '#999', editable: true, autoWidth: 1, autoHeight: 1, padding: 5, gap: 5 }),
                 ],
             }),

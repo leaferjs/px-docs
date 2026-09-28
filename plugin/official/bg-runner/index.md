@@ -10,7 +10,7 @@ import Case from '/component/Case.vue'
 
 ## 更新日志
 
-当前版本为 v1.0.1，[查看更新日志](./update.md)。
+开源前的最后版本为 v1.0.1，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（已开源）
 
@@ -41,14 +41,14 @@ bun add @leafer-in/bg-runner
 ::: code-group
 
 ```html [bg-runner.min]
-<script src="https://unpkg.com/@leafer-in/bg-runner@1.0.1/dist/bg-runner.min.js"></script>
+<script src="https://unpkg.com/@leafer-in/bg-runner@2.3.0/dist/bg-runner.min.js"></script>
 <script>
   const { BackgroundRunner } = LeaferIN.bgRunner
 </script>
 ```
 
 ```html [bg-runner]
-<script src="https://unpkg.com/@leafer-in/bg-runner@1.0.1/dist/bg-runner.js"></script>
+<script src="https://unpkg.com/@leafer-in/bg-runner@2.3.0/dist/bg-runner.js"></script>
 <script>
   const { BackgroundRunner } = LeaferIN.bgRunner
 </script>

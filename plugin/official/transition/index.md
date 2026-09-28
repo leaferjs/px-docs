@@ -8,60 +8,45 @@ Transition —— 轻松实现渐变颜色过渡动画。
 
 ## 更新日志
 
-当前版本为 v1.0.0，[查看更新日志](./update.md)。
+开源前的最后版本为 v1.0.0，[查看更新日志](./update.md)。
 
-## 📦 安装插件（本地安装）
+## 📦 安装插件（已开源）
 
-本插件不发布于公开 NPM 仓库，通过本地 `.tgz` 文件安装使用，需 [获取插件](https://www.pxgrow.com/plugin/view/?id=10017) 授权后才能使用。
-
-### 第一步：获取插件包
-
-购买后，你将获得一个名为 `leafer-in-transition-1.0.0.tgz` 的安装包。
-
-将该文件放置在你的项目根目录下的 `leafer` 文件夹中统一管理，安装后请勿删除。
-
-### 第二步：本地安装命令
-
-根据你使用的包管理器，选择以下方式之一：
+需要安装 transition 插件才能使用，[点此访问 Github 仓库](https://github.com/leaferjs/leafer-in/tree/main/packages/transition)。
 
 ::: code-group
 
 ```sh [npm]
-npm install ./leafer/leafer-in-transition-1.0.0.tgz
-
+npm install @leafer-in/transition
 ```
 
 ```sh [pnpm]
-pnpm add ./leafer/leafer-in-transition-1.0.0.tgz
-
+pnpm add @leafer-in/transition
 ```
 
 ```sh [yarn]
-yarn add ./leafer/leafer-in-transition-1.0.0.tgz
-
+yarn add @leafer-in/transition
 ```
 
 ```sh [bun]
-bun add ./leafer/leafer-in-transition-1.0.0.tgz
-
+bun add @leafer-in/transition
 ```
 
 :::
 
-将在 package.json 中自动增加本地依赖:
-
-`"@leafer-in/transition": "file:leafer/leafer-in-transition-1.0.0.tgz"`
-
----
-
 或通过 script 标签引入，使用全局变量 LeaferIN.transition 访问插件内部功能。
-
-解压 `leafer-in-transition-1.0.0.tgz` ，复制 `package/dist/transition.js` 使用。
 
 ::: code-group
 
-```html [web]
-<script src="/lib/leafer/transition.js"></script>
+```html [transition.min]
+<script src="https://unpkg.com/@leafer-in/transition@2.3.0/dist/transition.min.js"></script>
+<script>
+  const { Transition, TransitionData } = LeaferIN.transition
+</script>
+```
+
+```html [transition]
+<script src="https://unpkg.com/@leafer-in/transition@2.3.0/dist/transition.js"></script>
 <script>
   const { Transition, TransitionData } = LeaferIN.transition
 </script>
@@ -170,7 +155,7 @@ const rect3 = Box.one({
         style: {
             stroke: {
                 type: 'angular',
-                rotation: 360, // 依赖 LeaferJS v2.2.11
+                rotation: 360, // 依赖 LeaferJS v2.3.0
                 stops: ['#836DFF', '#836DFF', 'white', '#836DFF', '#836DFF']
             }
         },

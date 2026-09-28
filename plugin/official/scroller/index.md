@@ -12,7 +12,7 @@ Scroller &nbsp;>&nbsp; [Group](https://www.leaferjs.com/ui/reference/display/Gro
 
 ## 更新日志
 
-当前版本为 v1.0.1，[查看更新日志](./update.md)。
+开源前的最后版本为 v1.0.1，[查看更新日志](./update.md)。
 
 ## 📦 安装插件（已开源）
 
@@ -43,82 +43,20 @@ bun add @leafer-in/scroller
 ::: code-group
 
 ```html [scroller.min]
-<script src="https://unpkg.com/@leafer-in/scroller@1.0.1/dist/scroller.min.js"></script>
+<script src="https://unpkg.com/@leafer-in/scroller@2.3.0/dist/scroller.min.js"></script>
 <script>
   const { Scroller } = LeaferIN.scroller
 </script>
 ```
 
 ```html [scroller]
-<script src="https://unpkg.com/@leafer-in/scroller@1.0.1/dist/scroller.js"></script>
+<script src="https://unpkg.com/@leafer-in/scroller@2.3.0/dist/scroller.js"></script>
 <script>
   const { Scroller } = LeaferIN.scroller
 </script>
 ```
 
 :::
-
-<!--
-## 📦 安装插件（本地安装）
-
-本插件暂不发布于公开 NPM 仓库，通过本地 `.tgz` 文件安装使用，需 [赞助解锁](https://www.pxgrow.com/plugin/view/?id=10003) 后才能使用。
-
-赞助贡献值 >= 10 可下载安装包，贡献值 >= 50 可下载源码包。
-
-### 第一步：获取插件包
-
-赞助后，你将获得一个名为 `leafer-in-scroller-1.0.0.tgz` 的安装包。
-
-将该文件放置在你的项目根目录下的 `leafer` 文件夹中统一管理，安装后请勿删除。
-
-### 第二步：本地安装命令
-
-根据你使用的包管理器，选择以下方式之一：
-
-::: code-group
-
-```sh [npm]
-npm install ./leafer/leafer-in-scroller-1.0.0.tgz
-
-```
-
-```sh [pnpm]
-pnpm add ./leafer/leafer-in-scroller-1.0.0.tgz
-
-```
-
-```sh [yarn]
-yarn add ./leafer/leafer-in-scroller-1.0.0.tgz
-
-```
-
-```sh [bun]
-bun add ./leafer/leafer-in-scroller-1.0.0.tgz
-
-```
-
-:::
-
-将在 package.json 中自动增加本地依赖:
-
-`"@leafer-in/scroller": "file:leafer/leafer-in-scroller-1.0.0.tgz"`
-
----
-
-或通过 script 标签引入，使用全局变量 LeaferIN.scroller 访问插件内部功能。
-
-解压 `leafer-in-scroller-1.0.0.tgz` ，复制 `package/dist/scroller.js` 使用。
-
-::: code-group
-
-```html [web]
-<script src="/lib/leafer/scroller.js"></script>
-<script>
-  const { Scroller } = LeaferIN.scroller
-</script>
-```
-
-::: -->
 
 ## 示例
 
